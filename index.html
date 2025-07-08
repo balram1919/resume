@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balram Tilva - Frontend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 1.2em;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 1px solid #e9ecef;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #2c3e50;
+        }
+
+        .personal-info {
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 5px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        .skills-section {
+            margin-bottom: 30px;
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-category h4 {
+            font-size: 1em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            border: 1px solid #bbdefb;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .company {
+            color: #3498db;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .job-description ul {
+            padding-left: 20px;
+        }
+
+        .job-description li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            background: #e3f2fd;
+            transform: translateY(-2px);
+        }
+
+        .portfolio-item h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .portfolio-item p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #2c3e50;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .school {
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .edu-duration {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+        }
+
+        .summary p {
+            text-align: justify;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid #c8e6c9;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .duration {
+                margin-top: 5px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .portfolio-item:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="name">Balram Tilva</h1>
+            <p class="title">Frontend Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>Available upon request</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>Available upon request</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Surat, Gujarat, India</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h3 class="section-title">Personal Info</h3>
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <span class="info-label">Date of Birth:</span>
+                            <span class="info-value">31/08/2002</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Experience:</span>
+                            <span class="info-value">3.5+ Years</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Age:</span>
+                            <span class="info-value">22 Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Languages</h3>
+                    <div class="languages">
+                        <span class="language-item">English</span>
+                        <span class="language-item">Hindi</span>
+                        <span class="language-item">Gujarati</span>
+                    </div>
+                </div>
+
+                <div class="section skills-section">
+                    <h3 class="section-title">Technical Skills</h3>
+                    
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">JavaScript (ES6+)</span>
+                            <span class="skill-item">TypeScript</span>
+                            <span class="skill-item">HTML5</span>
+                            <span class="skill-item">CSS3</span>
+                            <span class="skill-item">SCSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Frontend Frameworks</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">React.js</span>
+                            <span class="skill-item">Redux</span>
+                            <span class="skill-item">Next.js</span>
+                            <span class="skill-item">React Router</span>
+                            <span class="skill-item">Bootstrap</span>
+                            <span class="skill-item">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">VS Code</span>
+                            <span class="skill-item">Postman</span>
+                            <span class="skill-item">Figma</span>
+                            <span class="skill-item">Firebase</span>
+                            <span class="skill-item">REST APIs</span>
+                            <span class="skill-item">Webpack</span>
+                            <span class="skill-item">Jest</span>
+                            <span class="skill-item">AWS Cognito</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Education</h3>
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Computer Applications (BCA)</div>
+                        <div class="school">Shree Uttar Gujarat BBA and BCA College</div>
+                        <div class="edu-duration">Feb 2022</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Higher Secondary Education – Commerce</div>
+                        <div class="school">Wisdom International School</div>
+                        <div class="edu-duration">Mar 2019</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="summary">
+                        <p>React.js Developer with 3.5 years of hands-on experience in building modern, scalable, and responsive web applications. Skilled in React, Redux, REST APIs, and responsive design with a strong grasp of performance optimization and UI/UX principles. Proficient in collaborating with cross-functional teams and delivering high-quality solutions for industries like FinTech, e-commerce, and employee safety management.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Frontend Developer</div>
+                                <div class="company">Neoverce IT Solutions</div>
+                            </div>
+                            <div class="duration">April 2021 - Present</div>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Built and maintained modular, scalable React.js applications for various industries including FinTech and e-commerce</li>
+                                <li>Translated UI/UX designs from Figma into pixel-perfect, responsive interfaces</li>
+                                <li>Integrated RESTful APIs and Firebase for real-time data synchronization and user authentication</li>
+                                <li>Contributed to reusable component libraries and implemented performance optimization techniques</li>
+                                <li>Followed Agile development practices with regular sprint reviews and planning sessions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Key Projects</h2>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">
+                            <h4>Kloo - Expense Management</h4>
+                            <p>Developed a comprehensive expense management platform for tracking and managing team spending with real-time analytics and reporting features.</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <h4>NJ Capital - Investment Platform</h4>
+                            <p>Built a financial investment platform offering mutual fund and portfolio services with interactive dashboards and secure transactions.</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <h4>My Mobile - Comparison Platform</h4>
+                            <p>Created a mobile device comparison platform featuring comprehensive reviews, detailed specifications, and user-friendly filtering system.</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <h4>Yoloh Customer Portal</h4>
+                            <p>Developed a web portal for AI-powered event and security management with intuitive user interface and real-time monitoring capabilities.</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <h4>Dine Savvy Admin Panel</h4>
+                            <p>Built an admin dashboard for restaurant management including order tracking, user management, and comprehensive analytics.</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <h4>Safe Space - Employee Platform</h4>
+                            <p>Developed both web and mobile applications for employee safety and attendance management with organization admin portal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
